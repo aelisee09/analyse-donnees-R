@@ -1,0 +1,1423 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{multirow}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={formR.R},
+  pdfauthor={Mr ELYSEE},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{formR.R}
+\author{Mr ELYSEE}
+\date{2025-06-18}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{options}\NormalTok{(}\AttributeTok{repos =} \FunctionTok{c}\NormalTok{(}\AttributeTok{CRAN =} \StringTok{"https://cloud.r{-}project.org/"}\NormalTok{))}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## le package 'tidyverse' a été décompressé et les sommes MD5 ont été vérifiées avec succés
+## 
+## Les packages binaires téléchargés sont dans
+##  C:\Users\Mr ELYSEE\AppData\Local\Temp\RtmpGuCpNQ\downloaded_packages
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## le package 'ggplot2' a été décompressé et les sommes MD5 ont été vérifiées avec succés
+## 
+## Les packages binaires téléchargés sont dans
+##  C:\Users\Mr ELYSEE\AppData\Local\Temp\RtmpGuCpNQ\downloaded_packages
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"labelled"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## le package 'labelled' a été décompressé et les sommes MD5 ont été vérifiées avec succés
+## 
+## Les packages binaires téléchargés sont dans
+##  C:\Users\Mr ELYSEE\AppData\Local\Temp\RtmpGuCpNQ\downloaded_packages
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"GGally"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## le package 'GGally' a été décompressé et les sommes MD5 ont été vérifiées avec succés
+## 
+## Les packages binaires téléchargés sont dans
+##  C:\Users\Mr ELYSEE\AppData\Local\Temp\RtmpGuCpNQ\downloaded_packages
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"lubridate"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## le package 'lubridate' a été décompressé et les sommes MD5 ont été vérifiées avec succés
+## 
+## Les packages binaires téléchargés sont dans
+##  C:\Users\Mr ELYSEE\AppData\Local\Temp\RtmpGuCpNQ\downloaded_packages
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"forcats"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## le package 'forcats' a été décompressé et les sommes MD5 ont été vérifiées avec succés
+## 
+## Les packages binaires téléchargés sont dans
+##  C:\Users\Mr ELYSEE\AppData\Local\Temp\RtmpGuCpNQ\downloaded_packages
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"gtsummary"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## installation de la dépendance 'cli'
+\end{verbatim}
+
+\begin{verbatim}
+## le package 'cli' a été décompressé et les sommes MD5 ont été vérifiées avec succés
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: impossible de supprimer l'installation précédente du package 'cli'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in file.copy(savedcopy, lib, recursive = TRUE): problème lors de la
+## copie de D:\R\R-4.4.1\library\00LOCK\cli\libs\x64\cli.dll vers
+## D:\R\R-4.4.1\library\cli\libs\x64\cli.dll : Permission denied
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: 'cli' restauré
+\end{verbatim}
+
+\begin{verbatim}
+## le package 'gtsummary' a été décompressé et les sommes MD5 ont été vérifiées avec succés
+## 
+## Les packages binaires téléchargés sont dans
+##  C:\Users\Mr ELYSEE\AppData\Local\Temp\RtmpGuCpNQ\downloaded_packages
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'tidyverse' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: le package 'ggplot2' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: le package 'purrr' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: le package 'forcats' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: le package 'lubridate' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.2     v tibble    3.2.1
+## v lubridate 1.9.4     v tidyr     1.3.1
+## v purrr     1.0.4
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'car' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Le chargement a nécessité le package : carData
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: le package 'carData' a été compilé avec la version R 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attachement du package : 'car'
+## 
+## L'objet suivant est masqué depuis 'package:dplyr':
+## 
+##     recode
+## 
+## L'objet suivant est masqué depuis 'package:purrr':
+## 
+##     some
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(cardx)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'cardx' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(labelled)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'labelled' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(gtsummary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'gtsummary' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggstatsplot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'ggstatsplot' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## You can cite this package as:
+##      Patil, I. (2021). Visualizations with statistical details: The 'ggstatsplot' approach.
+##      Journal of Open Source Software, 6(61), 3167, doi:10.21105/joss.03167
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(Hmisc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'Hmisc' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attachement du package : 'Hmisc'
+## 
+## Les objets suivants sont masqués depuis 'package:dplyr':
+## 
+##     src, summarize
+## 
+## Les objets suivants sont masqués depuis 'package:base':
+## 
+##     format.pval, units
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"trial"}\NormalTok{)}
+\FunctionTok{theme\_gtsummary\_language}\NormalTok{(}\StringTok{"fr"}\NormalTok{,}\AttributeTok{decimal.mark =} \StringTok{","}\NormalTok{, }\AttributeTok{big.mark =} \StringTok{" "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Setting theme "language: fr"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{View}\NormalTok{(trial)}
+\NormalTok{trial}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{look\_for}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  pos variable label                  col_type missing values
+##  1   trt      Chemotherapy Treatment chr      0             
+##  2   age      Age                    dbl      11            
+##  3   marker   Marker Level (ng/mL)   dbl      10            
+##  4   stage    T Stage                fct      0       T1    
+##                                                       T2    
+##                                                       T3    
+##                                                       T4    
+##  5   grade    Grade                  fct      0       I     
+##                                                       II    
+##                                                       III   
+##  6   response Tumor Response         int      7             
+##  7   death    Patient Died           int      0             
+##  8   ttdeath  Months to Death/Censor dbl      0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trial}\SpecialCharTok{|\textgreater{}}\FunctionTok{nrow}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 200
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(trial)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [200 x 8] (S3: tbl_df/tbl/data.frame)
+##  $ trt     : chr [1:200] "Drug A" "Drug B" "Drug A" "Drug A" ...
+##   ..- attr(*, "label")= chr "Chemotherapy Treatment"
+##  $ age     : num [1:200] 23 9 31 NA 51 39 37 32 31 34 ...
+##   ..- attr(*, "label")= chr "Age"
+##  $ marker  : num [1:200] 0.16 1.107 0.277 2.067 2.767 ...
+##   ..- attr(*, "label")= chr "Marker Level (ng/mL)"
+##  $ stage   : Factor w/ 4 levels "T1","T2","T3",..: 1 2 1 3 4 4 1 1 1 3 ...
+##   ..- attr(*, "label")= chr "T Stage"
+##  $ grade   : Factor w/ 3 levels "I","II","III": 2 1 2 3 3 1 2 1 2 1 ...
+##   ..- attr(*, "label")= chr "Grade"
+##  $ response: int [1:200] 0 1 0 1 1 0 0 0 0 0 ...
+##   ..- attr(*, "label")= chr "Tumor Response"
+##  $ death   : int [1:200] 0 0 0 1 1 1 0 1 0 1 ...
+##   ..- attr(*, "label")= chr "Patient Died"
+##  $ ttdeath : num [1:200] 24 24 24 17.6 16.4 ...
+##   ..- attr(*, "label")= chr "Months to Death/Censor"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Recodage des variables et labellisation}
+
+\NormalTok{trial }\OtherTok{\textless{}{-}}\NormalTok{ trial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{trt =} \FunctionTok{as.character}\NormalTok{(trt),}
+    \AttributeTok{stage =} \FunctionTok{as.character}\NormalTok{(stage),}
+    \AttributeTok{grade =} \FunctionTok{as.character}\NormalTok{(grade),}
+    \AttributeTok{response=}\FunctionTok{as.character}\NormalTok{(response),}
+    \AttributeTok{death=}\FunctionTok{as.character}\NormalTok{(death)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{set\_variable\_labels}\NormalTok{(}
+    \AttributeTok{trt =} \StringTok{"Traitement attribué"}\NormalTok{,}
+    \AttributeTok{age =} \StringTok{"Age du patient"}\NormalTok{,}
+    \AttributeTok{stage =} \StringTok{"Stade de la maladie"}\NormalTok{,}
+    \AttributeTok{grade =} \StringTok{"Gravité de la maladie"}\NormalTok{,}
+    \AttributeTok{response=}\StringTok{"Réponse de la tumeur"}\NormalTok{,}
+    \AttributeTok{death=}\StringTok{"En vie ou mort"}\NormalTok{,}
+    \AttributeTok{ttdeath=}\StringTok{"Total décès"}\NormalTok{,}
+    \AttributeTok{marker=}\StringTok{"Marqueur sanguin"}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{set\_value\_labels}\NormalTok{(}
+    \AttributeTok{trt =} \FunctionTok{c}\NormalTok{(}\StringTok{"A"} \OtherTok{=} \StringTok{"Drug A"}\NormalTok{, }\StringTok{"B"} \OtherTok{=} \StringTok{"Drug B"}\NormalTok{),}
+    \AttributeTok{stage =} \FunctionTok{c}\NormalTok{(}\StringTok{"0"} \OtherTok{=} \StringTok{"T1"}\NormalTok{, }\StringTok{"1"} \OtherTok{=} \StringTok{"T2"}\NormalTok{, }\StringTok{"2"} \OtherTok{=} \StringTok{"T3"}\NormalTok{, }\StringTok{"3"} \OtherTok{=} \StringTok{"T4"}\NormalTok{),}
+    \AttributeTok{grade =} \FunctionTok{c}\NormalTok{(}\StringTok{"Gravité1"} \OtherTok{=} \StringTok{"I"}\NormalTok{, }\StringTok{"Gravité2"} \OtherTok{=} \StringTok{"II"}\NormalTok{, }\StringTok{"Gravité3"} \OtherTok{=} \StringTok{"III"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{trt =}\NormalTok{ labelled}\SpecialCharTok{::}\FunctionTok{to\_factor}\NormalTok{(trt),}
+    \AttributeTok{stage =}\NormalTok{ labelled}\SpecialCharTok{::}\FunctionTok{to\_factor}\NormalTok{(stage),}
+    \AttributeTok{grade =}\NormalTok{ labelled}\SpecialCharTok{::}\FunctionTok{to\_factor}\NormalTok{(grade)}
+\NormalTok{  )}
+
+\CommentTok{\# Forcer la mise à jour des étiquettes (facultatif)}
+\FunctionTok{force}\NormalTok{(trial)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 200 x 8
+##    trt     age marker stage grade    response death ttdeath
+##    <fct> <dbl>  <dbl> <fct> <fct>    <chr>    <chr>   <dbl>
+##  1 A        23  0.16  0     Gravité2 0        0        24  
+##  2 B         9  1.11  1     Gravité1 1        0        24  
+##  3 A        31  0.277 0     Gravité2 0        0        24  
+##  4 A        NA  2.07  2     Gravité3 1        1        17.6
+##  5 A        51  2.77  3     Gravité3 1        1        16.4
+##  6 B        39  0.613 3     Gravité1 0        1        15.6
+##  7 A        37  0.354 0     Gravité2 0        0        24  
+##  8 A        32  1.74  0     Gravité1 0        1        18.4
+##  9 A        31  0.144 0     Gravité2 0        0        24  
+## 10 B        34  0.205 2     Gravité1 0        1        10.5
+## # i 190 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tbl\_summary}\NormalTok{()}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Variables**"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lc}
+\toprule
+\textbf{Variables} & \textbf{N = 200}\textsuperscript{\textit{1}} \\ 
+\midrule\addlinespace[2.5pt]
+Traitement attribué &  \\ 
+    A & 98 (49\%) \\ 
+    B & 102 (51\%) \\ 
+Age du patient & 47 (38 – 57) \\ 
+    Manquant & 11 \\ 
+Marqueur sanguin & 0,64 (0,22 – 1,41) \\ 
+    Manquant & 10 \\ 
+Stade de la maladie &  \\ 
+    0 & 53 (27\%) \\ 
+    1 & 54 (27\%) \\ 
+    2 & 43 (22\%) \\ 
+    3 & 50 (25\%) \\ 
+Gravité de la maladie &  \\ 
+    Gravité1 & 68 (34\%) \\ 
+    Gravité2 & 68 (34\%) \\ 
+    Gravité3 & 64 (32\%) \\ 
+Réponse de la tumeur &  \\ 
+    0 & 132 (68\%) \\ 
+    1 & 61 (32\%) \\ 
+    Manquant & 7 \\ 
+En vie ou mort &  \\ 
+    0 & 88 (44\%) \\ 
+    1 & 112 (56\%) \\ 
+Total décès & 22,4 (15,9 – 24,0) \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}n (\%); Médiane (Q1 -- Q3)\\
+\end{minipage}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tbl\_summary}\NormalTok{(}\AttributeTok{by=}\StringTok{"trt"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{modify\_header}\NormalTok{(}\AttributeTok{label =} \StringTok{"**Variables**"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcc}
+\toprule
+\textbf{Variables} & \textbf{A}  N = 98\textsuperscript{\textit{1}} & \textbf{B}  N = 102\textsuperscript{\textit{1}} \\ 
+\midrule\addlinespace[2.5pt]
+Age du patient & 46 (37 – 60) & 48 (39 – 56) \\ 
+    Manquant & 7 & 4 \\ 
+Marqueur sanguin & 0,84 (0,23 – 1,60) & 0,52 (0,18 – 1,21) \\ 
+    Manquant & 6 & 4 \\ 
+Stade de la maladie &  &  \\ 
+    0 & 28 (29\%) & 25 (25\%) \\ 
+    1 & 25 (26\%) & 29 (28\%) \\ 
+    2 & 22 (22\%) & 21 (21\%) \\ 
+    3 & 23 (23\%) & 27 (26\%) \\ 
+Gravité de la maladie &  &  \\ 
+    Gravité1 & 35 (36\%) & 33 (32\%) \\ 
+    Gravité2 & 32 (33\%) & 36 (35\%) \\ 
+    Gravité3 & 31 (32\%) & 33 (32\%) \\ 
+Réponse de la tumeur &  &  \\ 
+    0 & 67 (71\%) & 65 (66\%) \\ 
+    1 & 28 (29\%) & 33 (34\%) \\ 
+    Manquant & 3 & 4 \\ 
+En vie ou mort &  &  \\ 
+    0 & 46 (47\%) & 42 (41\%) \\ 
+    1 & 52 (53\%) & 60 (59\%) \\ 
+Total décès & 23,5 (17,4 – 24,0) & 21,2 (14,5 – 24,0) \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}Médiane (Q1 -- Q3); n (\%)\\
+\end{minipage}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(GGally)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'GGally' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'GGally':
+##   method from   
+##   +.gg   ggplot2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trial}\SpecialCharTok{|\textgreater{}}\FunctionTok{ggbivariate}\NormalTok{(}\AttributeTok{outcome =} \StringTok{"trt"}\NormalTok{, }\AttributeTok{explanatory =} \FunctionTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{, }\StringTok{"marker"}\NormalTok{,}\StringTok{"grade"}\NormalTok{, }\StringTok{"stage"}\NormalTok{,}\StringTok{"ttdeath"}\NormalTok{,}\StringTok{"death"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 11 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 11 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+\end{verbatim}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trial}\SpecialCharTok{|\textgreater{}}\FunctionTok{ggtable}\NormalTok{(}\AttributeTok{columnsY =} \FunctionTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{, }\StringTok{"marker"}\NormalTok{,}\StringTok{"grade"}\NormalTok{, }\StringTok{"stage"}\NormalTok{,}\StringTok{"ttdeath"}\NormalTok{,}\StringTok{"death"}\NormalTok{), }\AttributeTok{columnsX =} \StringTok{"trt"}\NormalTok{,}
+               \AttributeTok{fill=}\StringTok{"std.resid"}\NormalTok{,}
+               \AttributeTok{cells=}\StringTok{"row.prop"}\NormalTok{,}
+\NormalTok{               )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#library(tidyverse)}
+\CommentTok{\#library(labelled)}
+
+\CommentTok{\#data("trial")}
+
+\CommentTok{\#trial\_labeled \textless{}{-} trial \%\textgreater{}\%}
+\CommentTok{\#  set\_variable\_labels(}
+\CommentTok{\#    trt = "Traitement attribué",}
+\CommentTok{\#    age = "Age du patient",}
+\CommentTok{\#    marker = "Marqueur sanguin",}
+\CommentTok{\#    grade = "Gravité de la maladie",}
+\CommentTok{\#    stage = "Stade de la maladie",}
+\CommentTok{\#    ttdeath = "Temps jusqu\textquotesingle{}au décès",}
+\CommentTok{\#    death = "Décès"}
+\CommentTok{\#  )}
+
+\NormalTok{apply\_labels\_ggbivariate }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(p, data, outcome, explanatory) \{}
+\NormalTok{  outcome\_label }\OtherTok{\textless{}{-}} \FunctionTok{var\_label}\NormalTok{(data[[outcome]])}
+  \ControlFlowTok{for}\NormalTok{ (var }\ControlFlowTok{in}\NormalTok{ explanatory) \{}
+\NormalTok{    var\_label\_text }\OtherTok{\textless{}{-}} \FunctionTok{var\_label}\NormalTok{(data[[var]])}
+    \ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{is.null}\NormalTok{(var\_label\_text)) \{}
+\NormalTok{      p }\OtherTok{\textless{}{-}}\NormalTok{ p }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =}\NormalTok{ var\_label\_text, }\AttributeTok{y =}\NormalTok{ outcome\_label)}
+\NormalTok{    \}}
+\NormalTok{  \}}
+  \FunctionTok{return}\NormalTok{(p)}
+\NormalTok{\}}
+
+\NormalTok{plot }\OtherTok{\textless{}{-}}\NormalTok{ trial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggbivariate}\NormalTok{(}
+    \AttributeTok{outcome =} \StringTok{"trt"}\NormalTok{,}
+    \AttributeTok{explanatory =} \FunctionTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{, }\StringTok{"marker"}\NormalTok{, }\StringTok{"grade"}\NormalTok{, }\StringTok{"stage"}\NormalTok{, }\StringTok{"ttdeath"}\NormalTok{, }\StringTok{"death"}\NormalTok{)}
+\NormalTok{  )}
+
+\NormalTok{plot }\OtherTok{\textless{}{-}} \FunctionTok{apply\_labels\_ggbivariate}\NormalTok{(plot, trial, }\StringTok{"trt"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{, }\StringTok{"marker"}\NormalTok{, }\StringTok{"grade"}\NormalTok{, }\StringTok{"stage"}\NormalTok{, }\StringTok{"ttdeath"}\NormalTok{, }\StringTok{"death"}\NormalTok{))}
+
+\FunctionTok{print}\NormalTok{(plot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 11 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 11 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 10 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+\end{verbatim}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\FunctionTok{ggplot}\NormalTok{(trial) }\SpecialCharTok{+}
+  \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ trt, }\AttributeTok{fill =}\NormalTok{ grade) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\AttributeTok{I =} \StringTok{"\#F8766D"}\NormalTok{, }
+                               \AttributeTok{II =} \StringTok{"\#00C19F"}\NormalTok{, }\AttributeTok{III =} \StringTok{"\#FF61C3"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Age"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Traitement"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Répartition des traitements (trt) en fonction de l\textquotesingle{}âge, selon la gravité de la maladie (grade)"}\NormalTok{, }
+       \AttributeTok{caption =} \StringTok{"FormationR"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"Gravité de la tumeur"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_linedraw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{face =} \StringTok{"bold"}\NormalTok{), }
+        \AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{face =} \StringTok{"bold"}\NormalTok{, }\AttributeTok{size =} \DecValTok{15}\DataTypeTok{L}\NormalTok{), }\AttributeTok{legend.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{face =} \StringTok{"bold"}\NormalTok{), }
+        \AttributeTok{legend.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{face =} \StringTok{"bold"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 11 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: No shared levels found between `names(values)` of the manual scale and the
+## data's fill values.
+## No shared levels found between `names(values)` of the manual scale and the
+## data's fill values.
+\end{verbatim}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Modèle de regression linéaire simple et multiple.}
+
+
+\CommentTok{\# Préparation des données : sélection des variables et suppression des valeurs manquantes}
+\NormalTok{trial\_regression }\OtherTok{\textless{}{-}}\NormalTok{ trial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(age, marker,ttdeath) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{drop\_na}\NormalTok{()}
+
+\CommentTok{\# Création du modèle}
+\NormalTok{modele\_regression }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ttdeath }\SpecialCharTok{\textasciitilde{}}\NormalTok{ marker}\SpecialCharTok{+}\NormalTok{age, }\AttributeTok{data =}\NormalTok{ trial\_regression)}
+
+\CommentTok{\# Affichage du résumé du modèle}
+\FunctionTok{summary}\NormalTok{(modele\_regression)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = ttdeath ~ marker + age, data = trial_regression)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -15.937  -3.534   3.144   4.007   4.594 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 20.64546    1.38933  14.860   <2e-16 ***
+## marker       0.24828    0.45000   0.552    0.582    
+## age         -0.01925    0.02694  -0.715    0.476    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5.199 on 176 degrees of freedom
+## Multiple R-squared:  0.004624,   Adjusted R-squared:  -0.006687 
+## F-statistic: 0.4088 on 2 and 176 DF,  p-value: 0.6651
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(gtsummary)}
+
+\FunctionTok{data}\NormalTok{(}\StringTok{"trial"}\NormalTok{)}
+
+\CommentTok{\# Conversion des variables catégorielles en facteurs}
+\NormalTok{trial}\SpecialCharTok{$}\NormalTok{stage }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(trial}\SpecialCharTok{$}\NormalTok{stage)}
+\NormalTok{trial}\SpecialCharTok{$}\NormalTok{grade }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(trial}\SpecialCharTok{$}\NormalTok{grade)}
+\NormalTok{trial}\SpecialCharTok{$}\NormalTok{trt }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(trial}\SpecialCharTok{$}\NormalTok{trt)}
+\NormalTok{trial}\SpecialCharTok{$}\NormalTok{response }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(trial}\SpecialCharTok{$}\NormalTok{response)}
+
+\CommentTok{\# Gestion des valeurs manquantes}
+\NormalTok{trial }\OtherTok{\textless{}{-}}\NormalTok{ trial }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{drop\_na}\NormalTok{()}
+
+\CommentTok{\# Vérification des types de variables}
+\FunctionTok{str}\NormalTok{(trial)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [173 x 8] (S3: tbl_df/tbl/data.frame)
+##  $ trt     : Factor w/ 2 levels "Drug A","Drug B": 1 2 1 1 2 1 1 1 2 2 ...
+##  $ age     : num [1:173] 23 9 31 51 39 37 32 31 34 42 ...
+##   ..- attr(*, "label")= chr "Age"
+##  $ marker  : num [1:173] 0.16 1.107 0.277 2.767 0.613 ...
+##   ..- attr(*, "label")= chr "Marker Level (ng/mL)"
+##  $ stage   : Factor w/ 4 levels "T1","T2","T3",..: 1 2 1 4 4 1 1 1 3 1 ...
+##   ..- attr(*, "label")= chr "T Stage"
+##  $ grade   : Factor w/ 3 levels "I","II","III": 2 1 2 3 1 2 1 2 1 3 ...
+##   ..- attr(*, "label")= chr "Grade"
+##  $ response: Factor w/ 2 levels "0","1": 1 2 1 2 1 1 1 1 1 1 ...
+##  $ death   : int [1:173] 0 0 0 1 1 0 1 0 1 0 ...
+##   ..- attr(*, "label")= chr "Patient Died"
+##  $ ttdeath : num [1:173] 24 24 24 16.4 15.6 ...
+##   ..- attr(*, "label")= chr "Months to Death/Censor"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Modèle de régression logistique}
+\NormalTok{modele\_response }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(response }\SpecialCharTok{\textasciitilde{}}\NormalTok{ age }\SpecialCharTok{+}\NormalTok{ marker }\SpecialCharTok{+}\NormalTok{ stage }\SpecialCharTok{+}\NormalTok{ grade }\SpecialCharTok{+}\NormalTok{ trt, }\AttributeTok{data =}\NormalTok{ trial, }\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{)}
+
+\CommentTok{\# Affichage du résumé du modèle}
+\FunctionTok{summary}\NormalTok{(modele\_response)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = response ~ age + marker + stage + grade + trt, 
+##     family = "binomial", data = trial)
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(>|z|)  
+## (Intercept) -1.85393    0.73976  -2.506   0.0122 *
+## age          0.01901    0.01193   1.593   0.1112  
+## marker       0.34596    0.19688   1.757   0.0789 .
+## stageT2     -0.80936    0.47127  -1.717   0.0859 .
+## stageT3     -0.14589    0.48377  -0.302   0.7630  
+## stageT4     -0.43985    0.47316  -0.930   0.3526  
+## gradeII      0.03926    0.42852   0.092   0.9270  
+## gradeIII     0.03984    0.40810   0.098   0.9222  
+## trtDrug B    0.29470    0.34084   0.865   0.3872  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 214.80  on 172  degrees of freedom
+## Residual deviance: 205.89  on 164  degrees of freedom
+## AIC: 223.89
+## 
+## Number of Fisher Scoring iterations: 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{installed.packages}\NormalTok{(}\StringTok{"broom.helpers"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Package LibPath Version Priority Depends Imports LinkingTo Suggests
+##      Enhances License License_is_FOSS License_restricts_use OS_type Archs
+##      MD5sum NeedsCompilation Built
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(broom.helpers)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'broom.helpers' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attachement du package : 'broom.helpers'
+## 
+## Les objets suivants sont masqués depuis 'package:gtsummary':
+## 
+##     all_categorical, all_continuous, all_contrasts, all_dichotomous,
+##     all_interaction, all_intercepts
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modele\_response}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{tbl\_regression}\NormalTok{(}
+    \AttributeTok{exponentiate=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{add\_estimate\_to\_reference\_rows =} \ConstantTok{TRUE}
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_global\_p}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc}
+\toprule
+\textbf{Caractéristique} & \textbf{OR} & \textbf{95\% IC} & \textbf{p-valeur} \\ 
+\midrule\addlinespace[2.5pt]
+Age & 1,02 & 1,00 – 1,04 & 0,11 \\ 
+Marker Level (ng/mL) & 1,41 & 0,96 – 2,09 & 0,080 \\ 
+T Stage &  &  & 0,3 \\ 
+    T1 & 1,00 & — &  \\ 
+    T2 & 0,45 & 0,17 – 1,11 &  \\ 
+    T3 & 0,86 & 0,33 – 2,22 &  \\ 
+    T4 & 0,64 & 0,25 – 1,62 &  \\ 
+Grade &  &  & >0,9 \\ 
+    I & 1,00 & — &  \\ 
+    II & 1,04 & 0,45 – 2,42 &  \\ 
+    III & 1,04 & 0,47 – 2,32 &  \\ 
+trt &  &  & 0,4 \\ 
+    Drug A & 1,00 & — &  \\ 
+    Drug B & 1,34 & 0,69 – 2,64 &  \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+Abréviations: IC = intervalle de confiance, OR = rapport de cotes\\
+\end{minipage}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(gtsummary)}
+
+\FunctionTok{data}\NormalTok{(}\StringTok{"trial"}\NormalTok{)}
+
+\CommentTok{\# Préparation des données : sélection des variables et conversion en facteurs}
+\NormalTok{trial\_anova }\OtherTok{\textless{}{-}}\NormalTok{ trial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(age, trt, grade) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{trt =} \FunctionTok{as.factor}\NormalTok{(trt),}
+    \AttributeTok{grade =} \FunctionTok{as.factor}\NormalTok{(grade)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{drop\_na}\NormalTok{()}
+
+
+\CommentTok{\# ANOVA à un facteur : age \textasciitilde{} trt}
+\NormalTok{modele\_anova\_1 }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(age }\SpecialCharTok{\textasciitilde{}}\NormalTok{ trt, }\AttributeTok{data =}\NormalTok{ trial\_anova)}
+
+\CommentTok{\# Affichage du résumé du modèle}
+\FunctionTok{summary}\NormalTok{(modele\_anova\_1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Df Sum Sq Mean Sq F value Pr(>F)
+## trt           1      9    9.05   0.044  0.834
+## Residuals   187  38499  205.88
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ANOVA à deux facteurs : age \textasciitilde{} trt + grade}
+\NormalTok{modele\_anova\_2 }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(age }\SpecialCharTok{\textasciitilde{}}\NormalTok{ trt }\SpecialCharTok{+}\NormalTok{ grade, }\AttributeTok{data =}\NormalTok{ trial\_anova)}
+
+\CommentTok{\# Affichage du résumé du modèle}
+\FunctionTok{summary}\NormalTok{(modele\_anova\_2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Df Sum Sq Mean Sq F value Pr(>F)
+## trt           1      9    9.05   0.044  0.835
+## grade         2    128   64.07   0.309  0.735
+## Residuals   185  38371  207.41
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ANOVA à deux facteurs avec interaction : age \textasciitilde{} trt * grade}
+\NormalTok{modele\_anova\_inter }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(age }\SpecialCharTok{\textasciitilde{}}\NormalTok{ trt }\SpecialCharTok{*}\NormalTok{ grade, }\AttributeTok{data =}\NormalTok{ trial\_anova)}
+
+\CommentTok{\# Affichage du résumé du modèle}
+\FunctionTok{summary}\NormalTok{(modele\_anova\_inter)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Df Sum Sq Mean Sq F value Pr(>F)
+## trt           1      9     9.1   0.044  0.834
+## grade         2    128    64.1   0.313  0.732
+## trt:grade     2    929   464.7   2.271  0.106
+## Residuals   183  37442   204.6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Graphiques de diagnostic}
+\FunctionTok{plot}\NormalTok{(modele\_anova\_1)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-5.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-6.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-7.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-8.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(modele\_anova\_2)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-9.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-10.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-11.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-12.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(modele\_anova\_inter)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-13.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-14.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-15.pdf}
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-16.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Test de Levene pour l\textquotesingle{}homogénéité des variances}
+\FunctionTok{library}\NormalTok{(car)}
+\FunctionTok{leveneTest}\NormalTok{(age }\SpecialCharTok{\textasciitilde{}}\NormalTok{ trt, }\AttributeTok{data =}\NormalTok{ trial\_anova)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Levene's Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(>F)
+## group   1  0.7053 0.4021
+##       187
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{leveneTest}\NormalTok{(age }\SpecialCharTok{\textasciitilde{}}\NormalTok{ trt }\SpecialCharTok{*}\NormalTok{ grade, }\AttributeTok{data =}\NormalTok{ trial\_anova)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Levene's Test for Homogeneity of Variance (center = median)
+##        Df F value Pr(>F)
+## group   5  0.4313 0.8264
+##       183
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(survival)}
+\FunctionTok{library}\NormalTok{(survminer)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'survminer' a été compilé avec la version R 4.4.2
+\end{verbatim}
+
+\begin{verbatim}
+## Le chargement a nécessité le package : ggpubr
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: le package 'ggpubr' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attachement du package : 'survminer'
+## 
+## L'objet suivant est masqué depuis 'package:survival':
+## 
+##     myeloma
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(gtsummary)}
+
+\FunctionTok{data}\NormalTok{(}\StringTok{"trial"}\NormalTok{)}
+
+\CommentTok{\# Préparation des données : sélection des variables et conversion en facteurs}
+\NormalTok{trial\_survie }\OtherTok{\textless{}{-}}\NormalTok{ trial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(ttdeath, death, trt) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{trt =} \FunctionTok{as.factor}\NormalTok{(trt)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{drop\_na}\NormalTok{()}
+
+
+\CommentTok{\# Création de l\textquotesingle{}objet de survie}
+\NormalTok{objet\_survie }\OtherTok{\textless{}{-}} \FunctionTok{Surv}\NormalTok{(}\AttributeTok{time =}\NormalTok{ trial\_survie}\SpecialCharTok{$}\NormalTok{ttdeath, }\AttributeTok{event =}\NormalTok{ trial\_survie}\SpecialCharTok{$}\NormalTok{death)}
+
+
+\CommentTok{\# Estimation des courbes de survie}
+\NormalTok{modele\_survie }\OtherTok{\textless{}{-}} \FunctionTok{survfit}\NormalTok{(objet\_survie }\SpecialCharTok{\textasciitilde{}}\NormalTok{ trt, }\AttributeTok{data =}\NormalTok{ trial\_survie)}
+
+
+\CommentTok{\# Visualisation des courbes de survie}
+\FunctionTok{ggsurvplot}\NormalTok{(modele\_survie, }\AttributeTok{data =}\NormalTok{ trial\_survie,}
+           \AttributeTok{pval =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{conf.int =} \ConstantTok{TRUE}\NormalTok{,}
+           \AttributeTok{risk.table =} \ConstantTok{TRUE}\NormalTok{,}
+           \AttributeTok{ggtheme =} \FunctionTok{theme\_bw}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-17.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Test du log{-}rank}
+\NormalTok{test\_logrank }\OtherTok{\textless{}{-}} \FunctionTok{survdiff}\NormalTok{(objet\_survie }\SpecialCharTok{\textasciitilde{}}\NormalTok{ trt, }\AttributeTok{data =}\NormalTok{ trial\_survie)}
+\NormalTok{test\_logrank}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call:
+## survdiff(formula = objet_survie ~ trt, data = trial_survie)
+## 
+##              N Observed Expected (O-E)^2/E (O-E)^2/V
+## trt=Drug A  98       52     58.2     0.665      1.39
+## trt=Drug B 102       60     53.8     0.720      1.39
+## 
+##  Chisq= 1.4  on 1 degrees of freedom, p= 0.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'caret' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Le chargement a nécessité le package : lattice
+## 
+## Attachement du package : 'caret'
+## 
+## L'objet suivant est masqué depuis 'package:survival':
+## 
+##     cluster
+## 
+## L'objet suivant est masqué depuis 'package:purrr':
+## 
+##     lift
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(gtsummary)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(pROC)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: le package 'pROC' a été compilé avec la version R 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Type 'citation("pROC")' for a citation.
+## 
+## Attachement du package : 'pROC'
+## 
+## Les objets suivants sont masqués depuis 'package:stats':
+## 
+##     cov, smooth, var
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"trial"}\NormalTok{)}
+
+\CommentTok{\# Préparation des données (comme précédemment)}
+\NormalTok{trial\_ml }\OtherTok{\textless{}{-}}\NormalTok{ trial }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(age, marker, stage, grade, trt, response) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate\_if}\NormalTok{(is.character, as.factor) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{drop\_na}\NormalTok{()}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{trainIndex }\OtherTok{\textless{}{-}} \FunctionTok{createDataPartition}\NormalTok{(trial\_ml}\SpecialCharTok{$}\NormalTok{response, }\AttributeTok{p =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{train\_data }\OtherTok{\textless{}{-}}\NormalTok{ trial\_ml[trainIndex, ]}
+\NormalTok{test\_data }\OtherTok{\textless{}{-}}\NormalTok{ trial\_ml[}\SpecialCharTok{{-}}\NormalTok{trainIndex, ]}
+
+\CommentTok{\# Modèle de régression logistique}
+\NormalTok{modele\_logistique }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(response }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ train\_data, }\AttributeTok{family =} \StringTok{"binomial"}\NormalTok{)}
+
+\CommentTok{\# Prédictions sur l\textquotesingle{}ensemble de test}
+\NormalTok{predictions\_logistique\_prob }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(modele\_logistique, }\AttributeTok{newdata =}\NormalTok{ test\_data, }\AttributeTok{type =} \StringTok{"response"}\NormalTok{)}
+\NormalTok{predictions\_logistique }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(predictions\_logistique\_prob }\SpecialCharTok{\textgreater{}} \FloatTok{0.5}\NormalTok{, }\StringTok{"1"}\NormalTok{, }\StringTok{"0"}\NormalTok{)}
+
+\CommentTok{\# Convertir les prédictions et les valeurs réelles en facteurs}
+\NormalTok{predictions\_logistique }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(predictions\_logistique)}
+\NormalTok{test\_data}\SpecialCharTok{$}\NormalTok{response }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(test\_data}\SpecialCharTok{$}\NormalTok{response)}
+
+\CommentTok{\# Trouver et appliquer les mêmes niveaux}
+\NormalTok{unique\_levels }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FunctionTok{levels}\NormalTok{(predictions\_logistique), }\FunctionTok{levels}\NormalTok{(test\_data}\SpecialCharTok{$}\NormalTok{response)))}
+
+\NormalTok{predictions\_logistique }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(predictions\_logistique, }\AttributeTok{levels =}\NormalTok{ unique\_levels)}
+\NormalTok{test\_data}\SpecialCharTok{$}\NormalTok{response }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(test\_data}\SpecialCharTok{$}\NormalTok{response, }\AttributeTok{levels =}\NormalTok{ unique\_levels)}
+
+\CommentTok{\# Matrice de confusion}
+\NormalTok{cm }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(predictions\_logistique, test\_data}\SpecialCharTok{$}\NormalTok{response)}
+
+\CommentTok{\# Visualisation de la matrice de confusion (exemple avec ggplot2)}
+\NormalTok{cm\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Prediction =}\NormalTok{ predictions\_logistique,}
+  \AttributeTok{Reference =}\NormalTok{ test\_data}\SpecialCharTok{$}\NormalTok{response}
+\NormalTok{)}
+
+\FunctionTok{ggplot}\NormalTok{(cm\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Reference, }\AttributeTok{fill =}\NormalTok{ Prediction)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position =} \StringTok{"dodge"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Matrice de confusion"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Valeurs réelles"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Nombre de prédictions"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-18.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Courbe ROC}
+\NormalTok{roc\_obj }\OtherTok{\textless{}{-}} \FunctionTok{roc}\NormalTok{(test\_data}\SpecialCharTok{$}\NormalTok{response, predictions\_logistique\_prob)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Setting levels: control = 0, case = 1
+## Setting direction: controls < cases
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(roc\_obj, }\AttributeTok{main =} \StringTok{"Courbe ROC"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-19.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Importance des variables (exemple avec les forêts aléatoires)}
+\NormalTok{modele\_foret }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(response }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ train\_data, }\AttributeTok{method =} \StringTok{"rf"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in train.default(x, y, weights = w, ...): You are trying to do
+## regression and your outcome only has two possible values Are you trying to do
+## classification? If so, use a 2 level factor as your outcome column.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+## Warning in randomForest.default(x, y, mtry = param$mtry, ...): The response has
+## five or fewer unique values.  Are you sure you want to do regression?
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{importance }\OtherTok{\textless{}{-}} \FunctionTok{varImp}\NormalTok{(modele\_foret)}
+\FunctionTok{plot}\NormalTok{(importance, }\AttributeTok{main =} \StringTok{"Importance des variables"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{formR_files/figure-latex/unnamed-chunk-1-20.pdf}
+
+\end{document}
