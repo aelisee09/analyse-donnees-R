@@ -1,25 +1,85 @@
+# 📊 Introduction à l'Analyse des Données
 
-#  Introduction à l’analyse de données avec R
+Ce dépôt contient l'ensemble des scripts, notebooks et ressources utilisés au cours de ma formation en **introduction à l’analyse des données**.
 
-Ce projet est un support de formation à l’introduction à l’analyse de données avec **R**.  
-Il est destiné aux débutants souhaitant se familiariser avec les bases de la manipulation de données, de la visualisation et des statistiques descriptives dans R.
+## 🎯 Objectifs de la formation
 
-##  Structure du projet
+- Comprendre les fondamentaux de l'analyse exploratoire des données
+- Maîtriser les bibliothèques Python telles que `pandas`, `numpy`, `matplotlib` et `seaborn`
+- Apprendre à manipuler, nettoyer, visualiser et analyser des jeux de données
+- Introduction au **Web scraping** et à la **visualisation interactive**
+
+## 🗂️ Contenu du dépôt
 
 ```
-intro-analyse-donnees-R/
-├── README.md              # Présentation du projet
-├── analyse_intro.Rmd      # Fichier RMarkdown principal
-├── analyse_intro.html     # Rapport généré (optionnel)
-├── data/                  # Données brutes ou nettoyées
-│   └── donnees.csv
-├── plots/                 # Graphiques produits
-│   └── histogramme_age.png
-├── scripts/               # Scripts R complémentaires
-│   └── nettoyage.R
-```
 
-## Objectifs pédagogiques
+intro-analyse-donnees/
+│
+├── notebooks/
+│   ├── pandas\_intro.ipynb
+│   ├── visualisation\_matplotlib.ipynb
+│   ├── seaborn\_analysis.ipynb
+│   └── webscraping\_recette.ipynb
+│
+├── data/
+│   ├── canada\_immigration.xlsx
+│   ├── inflation\_uemoa.csv
+│   └── ...
+│
+├── scripts/
+│   ├── nettoyage\_donnees.py
+│   ├── analyse\_inflation.py
+│   └── scraping\_recettes.py
+│
+├── requirements.txt
+└── README.md
+
+````
+
+## 🧰 Technologies utilisées
+
+- Python 3
+- [Pandas](https://pandas.pydata.org/)
+- [NumPy](https://numpy.org/)
+- [Matplotlib](https://matplotlib.org/)
+- [Seaborn](https://seaborn.pydata.org/)
+- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
+- [Jupyter Notebook](https://jupyter.org/)
+
+## 🚀 Installation rapide
+
+1. **Clone le dépôt**
+   ```bash
+   git clone https://github.com/aelisee09/intro-analyse-donnees.git
+   cd intro-analyse-donnees
+````
+
+2. **Crée un environnement virtuel (optionnel)**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Sur Windows : venv\Scripts\activate
+   ```
+
+3. **Installe les bibliothèques nécessaires**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## 📚 À propos de la formation
+
+Cette formation constitue une base solide pour toute personne souhaitant se lancer dans la science des données ou l'analyse statistique avec Python.
+
+## 🙋 Auteur
+
+**Sènan Elisée AMADE**
+📍 Bénin | 📧 [aelisee09@gmail.com](mailto:aelisee09@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/elisée-amade-3169b7261)
+
+---
+
+> *“Les données sont muettes, seule une bonne analyse leur donne une voix.”*
 
 - Importer et visualiser des données dans R
 - Nettoyer et transformer des jeux de données
